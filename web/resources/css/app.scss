@@ -1,0 +1,40 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+
+@import "node_modules/bootstrap/scss/root";
+@import "node_modules/bootstrap/scss/grid";
+@import "node_modules/bootstrap/scss/tables";
+@import "node_modules/bootstrap/scss/forms";
+@import "node_modules/bootstrap/scss/buttons";
+@import "node_modules/bootstrap/scss/spinners";
+@import "node_modules/bootstrap/scss/badge";
+
+
+@import "node_modules/bootstrap/scss/helpers";
+
+html {
+    height: 100vh;
+}
+
+body {
+    height: 100%;
+}
+
+#search-url-depth {
+    flex: 0 1 100px;
+}
+
+#result-container {
+    border-top: 3px solid #eee;
+    border-bottom: 3px solid #eee;
+    padding: 8px 0px;
+    margin-bottom: 12px;
+    box-shadow: 0px 6px 6px #fff, 0px -6px 6px #fff;
+}
+
+.hidden {
+    display: none;
+}
+
+@import "node_modules/bootstrap/scss/bootstrap"
