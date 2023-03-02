@@ -18,7 +18,6 @@ services:
       - .docker/nginx:/etc/nginx/conf.d
     depends_on:
       - backend
-      - mysql
     networks:
       app-network:
 
@@ -34,21 +33,21 @@ services:
     networks:
       app-network:
 
-  mysql:
-    image: mysql:latest
-    container_name: mysql
-    restart: always
-    tty: true
-    ports:
-      - "3306:3306"
-    volumes: 
-      - ./mysql:/var/lib/mysql
-    environment:
-      MYSQL_DATABASE: crawlerdb
-      MYSQL_USER: crawlerdb
-      MYSQL_PASSWORD: secret123
-      MYSQL_ROOT_PASSWORD: secret123
-      SERVICE_TAGS: dev
-      SERVICE_NAME: mysql
-    networks:
-      app-network:
+  # mysql:
+  #   image: mysql:latest
+  #   container_name: mysql
+  #   restart: always
+  #   tty: true
+  #   ports:
+  #     - "3306:3306"
+  #   volumes: 
+  #     - ./mysql:/var/lib/mysql
+  #   environment:
+  #     MYSQL_DATABASE: crawlerdb
+  #     MYSQL_USER: crawlerdb
+  #     MYSQL_PASSWORD: secret123
+  #     MYSQL_ROOT_PASSWORD: secret123
+  #     SERVICE_TAGS: dev
+  #     SERVICE_NAME: mysql
+  #   networks:
+  #     app-network:
