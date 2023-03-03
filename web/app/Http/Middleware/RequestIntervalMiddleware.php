@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class RequestIntervalMiddleware
 {
@@ -18,15 +19,14 @@ class RequestIntervalMiddleware
     {
         $lastRequestTime = $request->session()->get('last_request_time');
         if ($lastRequestTime !== null) {
-            $timeInterval = time() - $lastRequestTime;
-
+            $timeInterval = Carbon::now()->diffInSeconds($lastRequestTime);
             if ($timeInterval < 1) {
                 dd('Please wait at least 1 second before sending another request.');
                 return response()->json(['message' => 'Please wait at least 1 second before sending another request.'], 429);
             }
         }
 
-        $request->session()->put('last_request_time', time());
+        $request->session()->put('last_request_time', Carbon::now());
         return $next($request);
     }
 }
